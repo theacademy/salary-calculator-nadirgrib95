@@ -2,7 +2,7 @@ package com.example;
 
 import java.util.Scanner;
 
-public class EmployeeSalaryCalculator 
+public class EmployeeSalaryCalculator
 {
 	//Variable Declaration
 	final static int standardWorkingHours = 40;
@@ -15,25 +15,25 @@ public class EmployeeSalaryCalculator
 	static int overTimeRate;
 	static int overTimePay;
 	static int grossSalary;
-	
-	public static void main(String[] args) 
+
+	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		
+
 		//Input
 		System.out.println("Enter an Employee ID: ");
 		employeeID = sc.nextLine();
-		
+
 		System.out.println("Enter an Employee Name: ");
 		employeeName = sc.nextLine();
-		
+
 		System.out.println("Enter the no. of Hours Worked: ");
 		hoursWorked = sc.nextInt();
-		
+
 		System.out.println("Enter the Hourly Rate: ");
 		hourlyRate = sc.nextInt();
-		
+
 		salaryCalculator(hoursWorked,hourlyRate);
 		displayPaySlip();
 	}
@@ -56,21 +56,25 @@ public class EmployeeSalaryCalculator
 		*/
 
 
-				if(HW <= standardWorkingHours)
-				{
-					//YOUR CODE STARTS HERE
-					 
-
-					//YOUR CODE ENDS HERE
-				}
-				else
-				{
-					//YOUR CODE STARTS HERE
- 
-
-					//YOUR CODE ENDS HERE
-				}
-				return grossSalary;
+		if(HW <= standardWorkingHours)
+		{
+			//YOUR CODE STARTS HERE
+			grossSalary = 0;
+			basicPay = HR * HW;
+			grossSalary = grossSalary + basicPay;
+			//YOUR CODE ENDS HERE
+		}
+		else
+		{
+			//YOUR CODE STARTS HERE
+			basicPay = HR * standardWorkingHours;
+			overTimeRate = HR * 2;
+			overTime = HW - 40;
+			overTimePay = overTime * overTimeRate;
+			grossSalary = overTimePay + basicPay;
+			//YOUR CODE ENDS HERE
+		}
+		return grossSalary;
 	}
 	
 	static void displayPaySlip()
